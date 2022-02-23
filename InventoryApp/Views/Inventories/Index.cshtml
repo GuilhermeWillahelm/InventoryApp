@@ -1,5 +1,4 @@
-﻿@page
-@model InventoryApp.Views.PageInventory.IndexModel
+﻿@model IEnumerable<InventoryApp.Models.Inventory>
 
 @{
     ViewData["Title"] = "Index";
@@ -8,25 +7,25 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].NameInventory)
+                @Html.DisplayNameFor(model => model.NameInventory)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].Quantity)
+                @Html.DisplayNameFor(model => model.Quantity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].Price)
+                @Html.DisplayNameFor(model => model.Price)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Inventory) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NameInventory)
@@ -38,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.InventoryId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.InventoryId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.InventoryId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.InventoryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InventoryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InventoryId">Delete</a>
             </td>
         </tr>
 }

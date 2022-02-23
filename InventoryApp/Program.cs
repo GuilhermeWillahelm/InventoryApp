@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using InventoryApp.Data;
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<InventoryAppContext>(options =>
+builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("InventoryAppContext")));
 
 // Add services to the container.
