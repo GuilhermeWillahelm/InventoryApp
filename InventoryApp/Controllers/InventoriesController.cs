@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using InventoryApp.Data;
+using InventoryApp.Areas.Identity.Data;
 using InventoryApp.Models;
 
 namespace InventoryApp.Controllers
 {
     public class InventoriesController : Controller
     {
-        private readonly DataContext _context;
+        private readonly InventoryAppContext _context;
 
-        public InventoriesController(DataContext context)
+        public InventoriesController(InventoryAppContext context)
         {
             _context = context;
         }
@@ -23,6 +23,7 @@ namespace InventoryApp.Controllers
         // GET: Inventories
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.Inventory.ToListAsync());
         }
 

@@ -1,16 +1,16 @@
 ﻿#nullable disable
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using InventoryApp.Data;
+using InventoryApp.Areas.Identity.Data;
 using InventoryApp.Models;
 
 namespace InventoryApp.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly DataContext _context;
+        private readonly InventoryAppContext _context;
 
-        public ProductsController(DataContext context)
+        public ProductsController(InventoryAppContext context)
         {
             _context = context;
         }
