@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("InventoryAppContext");
 
-builder.Services.AddDefaultIdentity<InventoryAppUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<InventoryAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<InventoryAppContext>();
 
 builder.Services.AddDbContext<InventoryAppContext>(options =>

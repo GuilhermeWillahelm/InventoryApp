@@ -3,20 +3,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using InventoryApp.Areas.Identity.Data;
 using InventoryApp.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace InventoryApp.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly InventoryAppContext _context;
+        private readonly SignInManager<InventoryAppUser> _signInManager;
 
-        public ProductsController(InventoryAppContext context)
+        public ProductsController(InventoryAppContext context, SignInManager<InventoryAppUser> signInManager)
         {
             _context = context;
+            _signInManager = signInManager;
         }
 
         public async Task<IActionResult> Index()
         {
+            if (!_signInManager.IsSignedIn(User))
+            {
+                return NoContent();
+            }
             return View(await _context.Products.ToListAsync());
         }
 
