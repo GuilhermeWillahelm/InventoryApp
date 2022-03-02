@@ -5,7 +5,7 @@
 *[Features](#features)
 *[Autor](#autor)
 
-<img src="/GuilhermeWillahelm/InventoryApp/blob/main/Readme.gif" height="425" style="max-width: 100%;"/>
+<img src="/GuilhermeWillahelm/InventoryApp/Readme.gif" height="425" style="max-width: 100%;"/>
 
 ## Tecnologias
 <p>Asp.Net Core</p>
