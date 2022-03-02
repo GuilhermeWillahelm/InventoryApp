@@ -1,9 +1,11 @@
 # InventoryApp
 <p align="center">Este é um projeto para fazer um gestão de estoque.</p>
 
+<p align="center">
 *[Tecnologias](#tecnologias)
 *[Features](#features)
 *[Autor](#autor)
+</p>
 
 ## Tecnologias
 <p>Asp.Net Core</p>

@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+i {
+    align-self: center;
+    text-align: center;
+    font-size: 250px;
+}
