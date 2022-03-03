@@ -8,7 +8,7 @@ using InventoryApp.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 //var connectionString = builder.Configuration.GetConnectionString("InventoryAppContext");
-var connectionString = builder.Configuration.GetConnectionString("InventoryAppPSql");
+var connectionString = builder.Configuration.GetConnectionString("InventoryApp");
 
 builder.Services.AddDefaultIdentity<InventoryAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<InventoryAppContext>();
