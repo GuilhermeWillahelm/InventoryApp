@@ -51,7 +51,7 @@ namespace InventoryApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId, NameProduct, DescriptionProduct, Quantity, Price, Inventory")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId, NameProduct, DescriptionProduct, Quantity, Price")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace InventoryApp.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Inventory.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
 
             if (product == null)
             {
@@ -82,7 +82,7 @@ namespace InventoryApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId, NameProduct, DescriptionProduct, Quantity, Price, Inventory")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId, NameProduct, DescriptionProduct, Quantity, Price")] Product product)
         {
             if (id != product.ProductId) 
             {
