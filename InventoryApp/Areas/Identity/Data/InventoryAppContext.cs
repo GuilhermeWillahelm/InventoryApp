@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Emit;
+using System.Security.Claims;
 
 namespace InventoryApp.Areas.Identity.Data;
 
@@ -24,6 +26,7 @@ public class InventoryAppContext : IdentityDbContext<InventoryAppUser>
         // Add your customizations after calling base.OnModelCreating(builder);
 
         builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
+        builder.Entity<Inventory>().Property(u => u.Price).HasPrecision(12, 10);
     }
 }
 

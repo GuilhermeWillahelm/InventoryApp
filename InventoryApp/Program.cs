@@ -5,16 +5,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using InventoryApp.Areas.Identity.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-//var connectionString = builder.Configuration.GetConnectionString("InventoryAppContext");
-var connectionString = builder.Configuration.GetConnectionString("InventoryApp");
+var connectionString = builder.Configuration.GetConnectionString("InventoryAppContext");
+var connectionStringSoome = builder.Configuration.GetConnectionString("InventoryAppSoome");
 
 builder.Services.AddDefaultIdentity<InventoryAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<InventoryAppContext>();
 
-//builder.Services.AddDbContext<InventoryAppContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDbContext<InventoryAppContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<InventoryAppContext>(options => options.UseSqlServer(connectionStringSoome));
+//builder.Services.AddDbContext<InventoryAppContext>(options => options.UseNpgsql(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
